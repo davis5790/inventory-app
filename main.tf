@@ -5,3 +5,7 @@ module "s3" {
 module "dynamodb" {
     source = "./modules/dynamodb"
 }
+
+module "lambda" {
+    source = "./modules/lambda"
+}
