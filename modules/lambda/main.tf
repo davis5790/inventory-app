@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "inventory-app-lambda-assume_policy" {
 }
 
 resource "aws_iam_role" "inventory-app-lambda-role" {
-  name               = "iam_for_lambda"
+  name               = "iam_for_inventory_lambda"
   assume_role_policy = data.aws_iam_policy_document.inventory-app-lambda-assume_policy.json
 }
 
@@ -28,8 +28,8 @@ data "aws_iam_policy_document" "inventory-app-lambda-policy" {
 }
 
 resource "aws_iam_policy" "inventory-app-lambda-policy" {
-  name        = "test-policy"
-  description = "A test policy"
+  name        = "inventory-iam-policy"
+  description = "Iam policy for inventory lambda"
   policy      = data.aws_iam_policy_document.inventory-app-lambda-policy.json
 }
 
@@ -40,7 +40,7 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_file = "./add_to_table.py"
+  source_file = "./modules/lambda/add_to_table.py"
   output_path = "inventory-add-to-table-lambda.zip"
 }
 

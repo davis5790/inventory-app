@@ -22,12 +22,11 @@ data "aws_iam_policy_document" "allow_lambda_access_to_bucket" {
   statement {
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws:iam::606026656431:role/iam_for_lambda"]
+      identifiers = ["arn:aws:iam::606026656431:role/iam_for_inventory_lambda"]
     }
 
     actions = [
       "s3:GetObject",
-      "s3:ListBucket",
     ]
 
     resources = [
