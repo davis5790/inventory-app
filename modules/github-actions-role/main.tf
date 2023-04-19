@@ -2,6 +2,7 @@ resource "aws_iam_role" "inventory-pipeline-role" {
   name = "inventory-pipeline-role"
 
   assume_role_policy = data.aws_iam_policy_document.inventory-pipeline-assume-document.json
+  max_session_duration = 43200
 }
 
 data "aws_iam_policy_document" "inventory-pipeline-assume-document" {
