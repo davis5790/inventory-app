@@ -1,4 +1,5 @@
-import boto3, datetime
+import boto3
+import datetime
 
 client = boto3.client('dynamodb')
 TableName = 'Respiratory-Supplies'
