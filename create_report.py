@@ -14,7 +14,7 @@ def generateStockReport(data):
 
 def generateExpirationReport(data):
     
-    today = datetime.date.today()
+    #today = datetime.date.today()
     #print(today)
     
     for item in data['Items']:
