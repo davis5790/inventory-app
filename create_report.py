@@ -15,16 +15,16 @@ def generateStockReport(data):
 
 def generateExpirationReport(data):
     
-    #today = datetime.date.today()
+    today = datetime.date.today()
     #print(today)
     
     for item in data['Items']:
-        
         if len(item['Expiration']['S'].strip()) > 0:
             date = item['Expiration']['S'].strip()
             #print(date)
-            expDate = datetime.datetime.strptime(date, '%Y-%m-%d')
-            print(expDate)
+            expDate = datetime.datetime.strptime(date, '%Y-%m-%d').date()
+            daysToExpire = expDate - today
+            print(item['Item']['S'] + " expire in " + str(daysToExpire.days) + " days")
     
         
 #generateStockReport(data)
